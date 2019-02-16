@@ -125,6 +125,8 @@ void caret_free (void);
    with the color STYLE.  */
 void location_caret (location loc, const char* style, FILE *out);
 
+void location_caret_suggestion (location loc, const char *s, FILE *out);
+
 /* Return -1, 0, 1, depending whether a is before, equal, or
    after b.  */
 static inline int

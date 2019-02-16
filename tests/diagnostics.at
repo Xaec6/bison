@@ -419,12 +419,20 @@ exp : '0'
 ]])
 
 AT_BISON_CHECK([[-fcaret -Wno-other input.y]], [0], [],
-[[input.y:2.1-12: warning: deprecated directive, use '%define api.pure' [-Wdeprecated]
+[[input.y:2.1-12: warning: deprecated directive: '%pure-parser', use '%define api.pure' [-Wdeprecated]
     2 | %pure-parser
       | ^~~~~~~~~~~~
-input.y:3.1-14: warning: deprecated directive, use '%define parse.error verbose' [-Wdeprecated]
+input.y:2.1-12: warning: deprecated directive [-Wdeprecated]
+    2 | %pure-parser
+      | ^~~~~~~~~~~~
+      | %define api.pure
+input.y:3.1-14: warning: deprecated directive: '%error-verbose', use '%define parse.error verbose' [-Wdeprecated]
     3 | %error-verbose
       | ^~~~~~~~~~~~~~
+input.y:3.1-14: warning: deprecated directive [-Wdeprecated]
+    3 | %error-verbose
+      | ^~~~~~~~~~~~~~
+      | %define parse.error verbose
 ]])
 
 AT_CLEANUP
